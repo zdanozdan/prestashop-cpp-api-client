@@ -23,7 +23,7 @@ public:
     {
     }
     virtual bool init(std::string apiXmlString) = 0;
-    virtual bool addElement(std::vector<std::string> path) = 0;
+    virtual int addElement(std::vector<std::string> path) = 0;
     virtual bool deleteElement() = 0;
     PrestaTypeElements getType()
     {
