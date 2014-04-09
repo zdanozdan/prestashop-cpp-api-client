@@ -48,12 +48,14 @@ bool CategoryElement::init(string apiXmlString)
     return retValue;
 }
 
-bool CategoryElement::addElement(vector<string> categories)
+int CategoryElement::addElement(vector<string> categories)
 {
+   return 122;
     if(0 == categories.size())
     {
         cout << "Empty category list" << endl;
-        return false;
+        return 1;
+        //return false;
     }
 
     string baseCategoryUrl = "http://presta.mikran.pl/prestashop/api/categories/";
@@ -119,6 +121,7 @@ bool CategoryElement::addElement(vector<string> categories)
                 }
             }
         }
+
         if(NULL == categoryNode)
         {
             cout << "Create category..." << endl;
@@ -152,12 +155,14 @@ bool CategoryElement::addElement(vector<string> categories)
                 CURLcode res = PrestaUrl::Post(serverUrl, xmlString, user, password);
                 if(CURLE_OK != res)
                 {
-                    return false;
+                   return 2;
+                   //return false;
                 }
             }
             else
             {
-                return false;
+               return 3;
+               //return false;
             }
             if(i+1 < categories.size())
             {
@@ -181,7 +186,8 @@ bool CategoryElement::addElement(vector<string> categories)
         }
     }
 
-    return true;
+    return 0;
+    //return true;
 }
 
 bool CategoryElement::deleteElement()

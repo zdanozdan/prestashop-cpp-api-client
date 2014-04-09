@@ -11,7 +11,7 @@ public:
     ~CategoryElement();
 
 private:
-    bool addElement(std::vector<std::string> path);
+    int addElement(std::vector<std::string> path);
     bool deleteElement();
     bool init(std::string apiXmlString);
 };
