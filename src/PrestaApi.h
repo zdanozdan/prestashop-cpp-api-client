@@ -10,7 +10,7 @@ public:
     PrestaApi();
     ~PrestaApi();
     bool initApi(std::string user, std::string password, std::string serverUrl);
-    bool addCategory(std::vector<std::string> path);
+    int addCategory(std::vector<std::string> path);
 private:
     class PrestaApiHandle;
     PrestaApiHandle *apiHandle;

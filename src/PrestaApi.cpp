@@ -22,9 +22,9 @@ public:
     }
 
     bool initApiHandle(std::string usr, std::string pass, std::string serverUrl);
-    bool addCategory(std::vector<std::string> path);
+    int addCategory(std::vector<std::string> path);
     bool initElement(PrestaElement::PrestaTypeElements eType);
-    bool addElement(PrestaElement::PrestaTypeElements eType, std::vector<std::string> path);
+    int addElement(PrestaElement::PrestaTypeElements eType, std::vector<std::string> path);
 private:
     std::string user;
     std::string password;
@@ -100,15 +100,15 @@ bool PrestaApi::PrestaApiHandle::initElement(PrestaTypeElements eType)
     return retValue;
 }
 
-bool PrestaApi::PrestaApiHandle::addElement(PrestaTypeElements eType, vector<string> path)
+int PrestaApi::PrestaApiHandle::addElement(PrestaTypeElements eType, vector<string> path)
 {
-    bool retValue = false;
+    int retValue = 999;
     for(unsigned int i=0; i < elems.size(); i++)
     {
-        if(eType == elems.at(i)->getType())
-        {
-            retValue = elems.at(i)->addElement(path);
-        }
+       if(eType == elems.at(i)->getType())
+       {
+          retValue = elems.at(i)->addElement(path);
+       }
     }
     cout << "PrestaApi::addElement " << (retValue ? "success" : "failed") << endl;
 
@@ -147,7 +147,7 @@ bool PrestaApi::initApi(string usr, string pass, string serverUrl)
     return apiHandler->initElement(eType);
 }*/
 
-bool PrestaApi::addCategory(vector<string> path)
+int PrestaApi::addCategory(vector<string> path)
 {
-    return apiHandle->addElement(PrestaElement::ePrestaCategory, path);
+   return apiHandle->addElement(PrestaElement::ePrestaCategory, path);
 }
