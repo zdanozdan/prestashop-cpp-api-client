@@ -123,7 +123,7 @@ string PrestaXml::toUtf8(string text)
     size_t dstlen = srclen*2;
 
     char *dst =  new char[dstlen];
-    memset(dst, 0, sizeof(dst));
+    memset(dst, 0, dstlen);
 
     const char * pIn = src;
     char * pOut = ( char*)dst;
@@ -133,6 +133,7 @@ string PrestaXml::toUtf8(string text)
     iconv_close(conv);
 
     string retValue = string(dst);
+    cout << "retValue = " << retValue << endl;
     delete dst;
 
     return retValue;

@@ -50,7 +50,6 @@ bool CategoryElement::init(string apiXmlString)
 
 int CategoryElement::addElement(vector<string> categories)
 {
-   return 122;
     if(0 == categories.size())
     {
         cout << "Empty category list" << endl;

@@ -110,7 +110,8 @@ int PrestaApi::PrestaApiHandle::addElement(PrestaTypeElements eType, vector<stri
           retValue = elems.at(i)->addElement(path);
        }
     }
-    cout << "PrestaApi::addElement " << (retValue ? "success" : "failed") << endl;
+    cout << "PrestaApiHandle::addElement retValue = " << retValue << endl;
+    cout << "PrestaApi::addElement " << (0==retValue ? "success" : "failed") << endl;
 
     return retValue;
 }
